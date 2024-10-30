@@ -2,12 +2,14 @@ package com.lexa.punto._de._venta.modelos;
 
 import com.lexa.punto._de._venta.util.Roles;
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.util.Set;
 
 
 @Table
 @Entity (name = "usuarios")
+@ToString
 public class Usuario {
 
     @Id
