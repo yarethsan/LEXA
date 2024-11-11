@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/inventario")
+@CrossOrigin("*")
 public class InventarioControlador {
 
     @Autowired
