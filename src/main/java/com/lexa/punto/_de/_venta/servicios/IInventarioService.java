@@ -16,4 +16,6 @@ public interface IInventarioService {
     void eliminarProducto(Integer idProducto);
 
     Optional<Inventario> obtenerProductoPorId(Integer id);
+
+    List<Inventario>buscarCodigo(String nombre, String codigo);
 }

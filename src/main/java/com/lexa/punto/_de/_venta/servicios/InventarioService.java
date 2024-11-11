@@ -53,4 +53,10 @@ public class InventarioService implements IInventarioService {
                 .orElseThrow(() -> new RuntimeException("No se encontraron datos"));
         return Optional.ofNullable(in);
     }
+
+    @Override
+    public List<Inventario> buscarCodigo(String nombre, String codigo) {
+        return iInventarioRepositorio.findByNombreProductoContainingOrCodigo(nombre, codigo);
+    }
 }
+
