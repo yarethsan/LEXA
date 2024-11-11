@@ -42,6 +42,12 @@ public class UsuarioControlador {
         usuarioService.pausarUsuario(id);
         return  ResponseEntity.ok("Usuario pausado");
 }
+@PostMapping ("/login")
+    public ResponseEntity<Usuario>mandaUsuario(@RequestParam String nombre,@RequestParam String contrasena){
+        Usuario usuario = usuarioService.usuarioLogin(nombre, contrasena);
+        return ResponseEntity.ok(usuario);
+}
+
    /* DeleteMapping ("/eliminar/{id}")
     public ResponseEntity<?> eliminarUsuario (@PathVariable Integer id){
         usuarioService.eliminarUsuario(id);

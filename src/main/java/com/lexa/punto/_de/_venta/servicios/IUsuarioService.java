@@ -16,4 +16,6 @@ public interface IUsuarioService {
     List<Usuario> obtenerTodosUsuarios();
     void  pausarUsuario(Integer idUsuario);
     // void eliminarUsuario (Integer idUsuario);
+
+    Usuario usuarioLogin(String nombre, String Contrasena);
 }

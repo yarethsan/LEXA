@@ -55,6 +55,20 @@ public class UsuarioService implements IUsuarioService {
         usuario.setActivo(false);
         usuarioRepositorio.save(usuario);
     }
+
+    @Override
+    public Usuario usuarioLogin(String nombre, String contrasena) {
+        Usuario busqueda = usuarioRepositorio.findByNombre(nombre);
+        if (busqueda == null ){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "USUARIO NO ENCONTRADO");
+        }else {
+            if (busqueda.getContrasena().equals(contrasena)){
+                return busqueda;
+            }else {
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "USUARIO Y CONTRASEÑA INCORRECTOS");
+            }
+        }
+    }
    /* @Override
     public void eliminarUsuario (Integer idUsuario)
        {usuarioRepositorio.deleteById(idUsuario);
