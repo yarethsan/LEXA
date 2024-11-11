@@ -21,6 +21,8 @@ public class Inventario {
     @Column(name = "cantidad_disponible")
     private Integer cantidadDisponible;
     private BigDecimal precio;
+    @Column (name = "codigo")
+    private String codigo;
 
     @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<DetalleVenta> detallesVentas;
@@ -64,5 +66,13 @@ public class Inventario {
 
     public void setDetallesVentas(Set<DetalleVenta> detallesVentas) {
         this.detallesVentas = detallesVentas;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }
