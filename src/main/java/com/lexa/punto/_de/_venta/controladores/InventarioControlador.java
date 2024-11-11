@@ -2,6 +2,7 @@ package com.lexa.punto._de._venta.controladores;
 
 import com.lexa.punto._de._venta.modelos.Inventario;
 import com.lexa.punto._de._venta.servicios.IInventarioService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +45,11 @@ public class InventarioControlador {
     public ResponseEntity<Inventario> mostrarInventarioid(@PathVariable Integer idInventario){
        Optional<Inventario> list=inventarioService.obtenerProductoPorId(idInventario);
        return ResponseEntity.ok(list.get());
+}
+@GetMapping("/buscar")
+    public ResponseEntity<List<Inventario>> busquedaCodigo(@RequestParam String nombre, @RequestParam String codigo){
+
+       List<Inventario> list=inventarioService.buscarCodigo(nombre, codigo);
+       return ResponseEntity.ok(list);
 }
 }
