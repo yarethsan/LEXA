@@ -1,5 +1,6 @@
 package com.lexa.punto._de._venta.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -25,6 +26,7 @@ public class Inventario {
     private String codigo;
 
     @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<DetalleVenta> detallesVentas;
 
 
