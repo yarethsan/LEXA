@@ -10,6 +10,9 @@ import org.springframework.web.server.ResponseStatusException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UsuarioService implements IUsuarioService {
 
@@ -34,4 +37,27 @@ public class UsuarioService implements IUsuarioService {
         return name != null;
         //si regresa un valor no vacio es un true, si regresa un vacio en false
     }
+
+    //NUEMOS METODOS PUREBA
+@Override
+    public Usuario obtenerUsuarioId(Integer id){
+       return usuarioRepositorio.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "NO SE ENCONTRO USUSARIO"));
+    }
+    @Override
+    public List<Usuario> obtenerTodosUsuarios(){
+        return usuarioRepositorio.findAll();
+    }
+    @Override
+    public void pausarUsuario (Integer id){
+        Usuario usuario = usuarioRepositorio.findById(id)
+                .orElseThrow(()-> new  ResponseStatusException(HttpStatus.NOT_FOUND, "NO SE ENCONROE"));
+        usuario.setActivo(false);
+        usuarioRepositorio.save(usuario);
+    }
+   /* @Override
+    public void eliminarUsuario (Integer idUsuario)
+       {usuarioRepositorio.deleteById(idUsuario);
+    }*/
+
 }

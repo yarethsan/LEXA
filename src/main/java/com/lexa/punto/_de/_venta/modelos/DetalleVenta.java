@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 @Entity
 @Table (name = "detalle_venta")
-public class DetalleVenta {
+public class  DetalleVenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_detalle")
