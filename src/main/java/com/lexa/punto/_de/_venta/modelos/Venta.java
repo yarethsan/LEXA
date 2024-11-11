@@ -1,6 +1,7 @@
 package com.lexa.punto._de._venta.modelos;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Table
 @Entity (name = "venta")
+@ToString
 public class Venta {
 
     @Id
