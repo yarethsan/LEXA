@@ -1,6 +1,7 @@
 package com.lexa.punto._de._venta.modelos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lexa.punto._de._venta.util.Roles;
 import jakarta.persistence.*;
 import lombok.ToString;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table
 @Entity (name = "usuarios")
 @ToString
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  // Ignorar proxy y propiedades internas de Hibernate
 public class Usuario {
 
     @Id
